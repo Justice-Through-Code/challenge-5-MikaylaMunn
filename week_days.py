@@ -8,35 +8,32 @@ def day_of_week():
     for day in days:
         print(day)
     # 1.2 TODO: Write another for loop that does the same thing, but this time use the range function
-    for day in range(days):
-        print(day)
+    for i in range(len(days)):
+        print(days[i])
 
 def favorite_activities():
     # We should keep track of the user's favorite things to do so that we can print them out all together.
     # 2.2 TODO: ABOVE your for loop, create a new empty list to hold the user's favorite activities.
-    favorite_activities = []
+    my_favorite_activities = []
     # 2.1 TODO: Now, in a for loop, instead of just printing out the day,
     # let's ask the user what their favorite thing to do is on that day of the week.
     # NOTE: Make sure to use an f-string so that the user knows which day they're being asked about.
     for day in days:
-        print(input(f'What is your favortie thing to do on {day}?'))
+        favorite_activities = input(f'What is your favortie thing to do on {day}s?')
     # 2.3 TODO: Now, back in your for loop, append each of the user's answers into your new list.
     # AFTER your loop, print out the list to check if it got populated correctly.
-        favorite_activities.append(day)
-        print(favorite_activities)
+        my_favorite_activities.append(favorite_activities)
+    print(my_favorite_activities)
     # 2.4: After the code you've written so far, let's create a new for loop.
     # As an example, let's say the user's favorite thing to do on Mondays is plan their week.
-    #  This time, we want the output to be something like this:
-    # f'On Mondays, your favorite activity is to plan your week.'
+    # This time, we want the output to be something like this:
+    # f'On Mondays, your favorite activity is to plan your week.'     
     # We need information from both lists! Let's use the `range` function to loop through the indexes
     # of the items in the lists (this will work because the lists are the same length).
-    for activity in range(favorite_activities): 
-        for days in range(days):
-            print(f"On {day}s, your favorite activity is to {activity}.")
-        
     # Each time through this new loop, use the index number to index into each of your lists for the data
     # you need to print out.
-
+    for i in range(len(days)):
+        print(f'On {days[i]}s, your favorite activity is to {my_favorite_activities[i]}.')
 
 '''
     Take a look back at the code you just wrote. Look at how much it does!
@@ -52,13 +49,13 @@ def favorite_activities():
 
     Try to break down the steps required for this second loop challenge.
 '''
-
+# favorite_activities()
 
 def temp_by_day():
     # 3 TODO: Write a program that loops through the days in the week. 
     for each_day in days:
     # Each day, ask the user what the temperature
-        temp = input("What is the temerpature today?")
+        temp = input(f"What is the temerpature on {each_day}?")
         temp = int(temp)
         # print(temp)
     # is. If the temperature is below 50, tell the user to 'Brr, put on a jacket!'. 
@@ -66,24 +63,27 @@ def temp_by_day():
             print("Brr, put on a jacket!")
     # Or, if the temperature is
     # between 50 and 65, tell the user to 'Cozy, grab a sweater'. Finally, if the temperature is above 65,
-        elif 50 >= temp < 65:
+        elif 50 <= temp <= 65:
             print('Cozy, grab a sweater')
     # tell the user to 'Put on some sunscreen!'.
         else:
             print("Put on some sunscreen!")
 
 
+
 def temp_by_day_continuous():
     # 4 TODO: Write a program that asks the user what temperature it is outside. 
-    temp_outside = input("What is the temperature outside?")
-    temp_outside = int(temp_outside)
+    temp_outside = input("What is the temperature outside:")
+    new_temp = int(temp_outside)
     # While the temperature is below 65,
-    while temp_outside <= 65:
-        print('Wear a sweater.')
+    while (new_temp <= 65):
+        print("Wear a sweater")
+        temp_outside = input("What is the temperature outside?")
+        new_temp = int(temp_outside)
+    print("Spring has sprung!")
     # tell the user to wear a sweater. 
     # Once the temperature is over 65, stop looping, and tell the user that
     # Spring has sprung!
-    print("Spring has sprung!")
 
     # NOTE: remember, if you accidentally create an infinite while loop, it's ok! Go into the command line and
     # hit control + C to stop the program. No harm done to your computer (:
